@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x4BEB8B5D79F5EE50",
+      "boundary_crc": "0xDECE60FF93AA74B4",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design",
       "name": "my_cpu_design",
@@ -22,11 +22,8 @@
       },
       "next_inst_0": {
         "direction": "O",
-        "left": "4",
+        "left": "15",
         "right": "0"
-      },
-      "saute_now_0": {
-        "direction": "O"
       },
       "result_0": {
         "direction": "O",
@@ -45,6 +42,19 @@
       },
       "jump1": {
         "direction": "O"
+      },
+      "opcode": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "store_flag": {
+        "direction": "O"
+      },
+      "address_0": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
       }
     },
     "components": {
@@ -60,20 +70,17 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "store_flag": {
+            "direction": "I"
+          },
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "my_cpu_design_clk_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
-          "saute_now": {
-            "direction": "O"
+          "halt": {
+            "direction": "I"
           },
-          "jump1_enable": {
+          "skip_next": {
             "direction": "I"
           },
           "jump_enable": {
@@ -81,12 +88,12 @@
           },
           "jump_addr": {
             "direction": "I",
-            "left": "7",
+            "left": "15",
             "right": "0"
           },
           "next_inst": {
             "direction": "O",
-            "left": "4",
+            "left": "15",
             "right": "0"
           }
         }
@@ -103,7 +110,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "store": {
+          "reg_data_en": {
             "direction": "I"
           },
           "stored_val": {
@@ -111,24 +118,19 @@
             "left": "7",
             "right": "0"
           },
-          "store_addr": {
-            "direction": "I",
-            "left": "4",
-            "right": "0"
-          },
           "inst_addr": {
             "direction": "I",
-            "left": "4",
+            "left": "15",
+            "right": "0"
+          },
+          "address": {
+            "direction": "O",
+            "left": "15",
             "right": "0"
           },
           "op": {
             "direction": "O",
-            "left": "2",
-            "right": "0"
-          },
-          "operandd": {
-            "direction": "O",
-            "left": "4",
+            "left": "7",
             "right": "0"
           },
           "data": {
@@ -152,22 +154,20 @@
         "ports": {
           "op": {
             "direction": "I",
-            "left": "2",
+            "left": "7",
             "right": "0"
           },
-          "jump1": {
+          "skip1": {
             "direction": "O"
           },
           "jump_enable": {
             "direction": "O"
           },
-          "store_enable": {
+          "Halt": {
             "direction": "O"
           },
-          "operamd": {
-            "direction": "I",
-            "left": "4",
-            "right": "0"
+          "store_enable": {
+            "direction": "O"
           },
           "rega_data": {
             "direction": "I",
@@ -228,34 +228,40 @@
       }
     },
     "nets": {
+      "ALU_0_Halt": {
+        "ports": [
+          "ALU_0/Halt",
+          "Pc_0/halt"
+        ]
+      },
       "ALU_0_jump1": {
         "ports": [
-          "ALU_0/jump1",
-          "Pc_0/jump1_enable",
-          "jump1"
+          "ALU_0/skip1",
+          "jump1",
+          "Pc_0/skip_next"
         ]
       },
       "ALU_0_jump_enable": {
         "ports": [
           "ALU_0/jump_enable",
-          "Pc_0/jump_enable",
-          "Registre_A_0/jump"
+          "Registre_A_0/jump",
+          "Pc_0/jump_enable"
         ]
       },
       "ALU_0_result": {
         "ports": [
           "ALU_0/result",
           "result_0",
-          "Registre_A_0/write_data",
-          "Pc_0/jump_addr",
-          "memoire_programe_0/store_addr"
+          "Registre_A_0/write_data"
         ]
       },
       "ALU_0_store_enable": {
         "ports": [
           "ALU_0/store_enable",
+          "store_flag",
+          "memoire_programe_0/reg_data_en",
           "Registre_A_0/st",
-          "memoire_programe_0/store"
+          "Pc_0/store_flag"
         ]
       },
       "Pc_0_next_inst": {
@@ -265,44 +271,40 @@
           "memoire_programe_0/inst_addr"
         ]
       },
-      "Pc_0_saute_now": {
-        "ports": [
-          "Pc_0/saute_now",
-          "saute_now_0"
-        ]
-      },
       "Registre_A_0_reg_data": {
         "ports": [
           "Registre_A_0/reg_data",
-          "ALU_0/rega_data",
           "reg_data",
+          "ALU_0/rega_data",
           "memoire_programe_0/stored_val"
         ]
       },
       "clk_0_1": {
         "ports": [
           "clk_0",
-          "Pc_0/clk",
-          "Registre_A_0/clk"
+          "Registre_A_0/clk",
+          "Pc_0/clk"
+        ]
+      },
+      "memoire_programe_0_address": {
+        "ports": [
+          "memoire_programe_0/address",
+          "address_0",
+          "Pc_0/jump_addr"
         ]
       },
       "memoire_programe_0_data": {
         "ports": [
           "memoire_programe_0/data",
-          "ALU_0/mem_data",
-          "prog_mem_data"
+          "prog_mem_data",
+          "ALU_0/mem_data"
         ]
       },
       "memoire_programe_0_op": {
         "ports": [
           "memoire_programe_0/op",
+          "opcode",
           "ALU_0/op"
-        ]
-      },
-      "memoire_programe_0_operandd": {
-        "ports": [
-          "memoire_programe_0/operandd",
-          "ALU_0/operamd"
         ]
       }
     }

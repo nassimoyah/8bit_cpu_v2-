@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "Registre_A_behav" "xil_defaultlib.Registre_A" -log "elaborate.log" 

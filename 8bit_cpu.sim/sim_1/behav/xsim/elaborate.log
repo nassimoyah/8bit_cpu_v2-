@@ -5,24 +5,4 @@ Running: C:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package unisim.vcomponents
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.ALU [alu_default]
-Compiling architecture my_cpu_design_alu_0_0_arch of entity xil_defaultlib.my_cpu_design_ALU_0_0 [my_cpu_design_alu_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Pc [pc_default]
-Compiling architecture my_cpu_design_pc_0_0_arch of entity xil_defaultlib.my_cpu_design_Pc_0_0 [my_cpu_design_pc_0_0_default]
-Compiling architecture behavioral of entity xil_defaultlib.Registre_A [registre_a_default]
-Compiling architecture my_cpu_design_registre_a_0_0_arch of entity xil_defaultlib.my_cpu_design_Registre_A_0_0 [my_cpu_design_registre_a_0_0_def...]
-Compiling architecture behavioral of entity xil_defaultlib.memoire_programe [memoire_programe_default]
-Compiling architecture my_cpu_design_memoire_programe_0_0_arch of entity xil_defaultlib.my_cpu_design_memoire_programe_0_0 [my_cpu_design_memoire_programe_0...]
-Compiling architecture structure of entity xil_defaultlib.my_cpu_design [my_cpu_design_default]
-Compiling architecture structure of entity xil_defaultlib.my_cpu_design_wrapper
-Built simulation snapshot my_cpu_design_wrapper_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

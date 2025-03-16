@@ -36,11 +36,11 @@
     },
     "boundary": {
       "ports": {
-        "op": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
-        "jump1": [ { "direction": "out" } ],
+        "op": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "skip1": [ { "direction": "out" } ],
         "jump_enable": [ { "direction": "out" } ],
+        "Halt": [ { "direction": "out", "driver_value": "0x0" } ],
         "store_enable": [ { "direction": "out" } ],
-        "operamd": [ { "direction": "in", "size_left": "4", "size_right": "0" } ],
         "rega_data": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
         "mem_data": [ { "direction": "in", "size_left": "7", "size_right": "0", "driver_value": "0x00" } ],
         "result": [ { "direction": "out", "size_left": "7", "size_right": "0" } ]

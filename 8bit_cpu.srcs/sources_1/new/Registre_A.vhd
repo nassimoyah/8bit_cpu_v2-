@@ -47,8 +47,8 @@ architecture Behavioral of Registre_A is
 begin
     process(clk)
     begin
-        if falling_edge(clk) then
-              if (jump = '0' and st ='0') then   
+        if rising_edge(clk) then
+              if (jump = '0' ) then   
                
                 reg <= write_data;
               end if ; 

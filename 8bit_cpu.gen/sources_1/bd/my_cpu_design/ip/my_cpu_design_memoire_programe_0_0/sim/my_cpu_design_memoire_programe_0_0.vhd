@@ -46,59 +46,45 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:module_ref:Pc:1.0
+-- IP VLNV: xilinx.com:module_ref:memoire_programe:1.0
 -- IP Revision: 1
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-ENTITY my_cpu_design_Pc_0_0 IS
+ENTITY my_cpu_design_memoire_programe_0_0 IS
   PORT (
-    clk : IN STD_LOGIC;
-    saute_now : OUT STD_LOGIC;
-    jump1_enable : IN STD_LOGIC;
-    jump_enable : IN STD_LOGIC;
-    jump_addr : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    next_inst : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+    reg_data_en : IN STD_LOGIC;
+    stored_val : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    inst_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    op : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
-END my_cpu_design_Pc_0_0;
+END my_cpu_design_memoire_programe_0_0;
 
-ARCHITECTURE my_cpu_design_Pc_0_0_arch OF my_cpu_design_Pc_0_0 IS
+ARCHITECTURE my_cpu_design_memoire_programe_0_0_arch OF my_cpu_design_memoire_programe_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_Pc_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT Pc IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_memoire_programe_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT memoire_programe IS
     PORT (
-      clk : IN STD_LOGIC;
-      saute_now : OUT STD_LOGIC;
-      jump1_enable : IN STD_LOGIC;
-      jump_enable : IN STD_LOGIC;
-      jump_addr : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      next_inst : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
+      reg_data_en : IN STD_LOGIC;
+      stored_val : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      inst_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      op : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
-  END COMPONENT Pc;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF my_cpu_design_Pc_0_0_arch: ARCHITECTURE IS "Pc,Vivado 2024.2";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF my_cpu_design_Pc_0_0_arch : ARCHITECTURE IS "my_cpu_design_Pc_0_0,Pc,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF my_cpu_design_Pc_0_0_arch: ARCHITECTURE IS "my_cpu_design_Pc_0_0,Pc,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=Pc,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED}";
-  ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
-  ATTRIBUTE IP_DEFINITION_SOURCE OF my_cpu_design_Pc_0_0_arch: ARCHITECTURE IS "module_ref";
-  ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_MODE : STRING;
-  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF clk: SIGNAL IS "xilinx.com:signal:clock:1.0 clk CLK";
-  ATTRIBUTE X_INTERFACE_MODE OF clk: SIGNAL IS "slave clk";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN my_cpu_design_clk_0, INSERT_VIP 0";
+  END COMPONENT memoire_programe;
 BEGIN
-  U0 : Pc
+  U0 : memoire_programe
     PORT MAP (
-      clk => clk,
-      saute_now => saute_now,
-      jump1_enable => jump1_enable,
-      jump_enable => jump_enable,
-      jump_addr => jump_addr,
-      next_inst => next_inst
+      reg_data_en => reg_data_en,
+      stored_val => stored_val,
+      inst_addr => inst_addr,
+      address => address,
+      op => op,
+      data => data
     );
-END my_cpu_design_Pc_0_0_arch;
+END my_cpu_design_memoire_programe_0_0_arch;

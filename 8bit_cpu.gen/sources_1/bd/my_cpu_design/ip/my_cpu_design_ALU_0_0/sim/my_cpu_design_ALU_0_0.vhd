@@ -55,11 +55,11 @@ USE ieee.numeric_std.ALL;
 
 ENTITY my_cpu_design_ALU_0_0 IS
   PORT (
-    op : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-    jump1 : OUT STD_LOGIC;
+    op : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    skip1 : OUT STD_LOGIC;
     jump_enable : OUT STD_LOGIC;
+    Halt : OUT STD_LOGIC;
     store_enable : OUT STD_LOGIC;
-    operamd : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
     result : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
@@ -71,11 +71,11 @@ ARCHITECTURE my_cpu_design_ALU_0_0_arch OF my_cpu_design_ALU_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_ALU_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT ALU IS
     PORT (
-      op : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-      jump1 : OUT STD_LOGIC;
+      op : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      skip1 : OUT STD_LOGIC;
       jump_enable : OUT STD_LOGIC;
+      Halt : OUT STD_LOGIC;
       store_enable : OUT STD_LOGIC;
-      operamd : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
       rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
       result : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
@@ -85,10 +85,10 @@ BEGIN
   U0 : ALU
     PORT MAP (
       op => op,
-      jump1 => jump1,
+      skip1 => skip1,
       jump_enable => jump_enable,
+      Halt => Halt,
       store_enable => store_enable,
-      operamd => operamd,
       rega_data => rega_data,
       mem_data => mem_data,
       result => result

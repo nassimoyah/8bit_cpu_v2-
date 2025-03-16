@@ -1,0 +1,9 @@
+vhdl xil_defaultlib  \
+"../../../bd/my_cpu_design/ip/my_cpu_design_Pc_0_0/sim/my_cpu_design_Pc_0_0.vhd" \
+"../../../bd/my_cpu_design/ip/my_cpu_design_memoire_programe_0_0/sim/my_cpu_design_memoire_programe_0_0.vhd" \
+"../../../bd/my_cpu_design/ip/my_cpu_design_ALU_0_0/sim/my_cpu_design_ALU_0_0.vhd" \
+"../../../bd/my_cpu_design/ip/my_cpu_design_Registre_A_0_0/sim/my_cpu_design_Registre_A_0_0.vhd" \
+"../../../bd/my_cpu_design/sim/my_cpu_design.vhd" \
+
+# Do not sort compile order
+nosort

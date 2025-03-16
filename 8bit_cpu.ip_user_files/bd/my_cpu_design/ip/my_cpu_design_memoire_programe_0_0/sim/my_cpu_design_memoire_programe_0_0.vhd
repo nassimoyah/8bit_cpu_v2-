@@ -55,12 +55,11 @@ USE ieee.numeric_std.ALL;
 
 ENTITY my_cpu_design_memoire_programe_0_0 IS
   PORT (
-    store : IN STD_LOGIC;
+    reg_data_en : IN STD_LOGIC;
     stored_val : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    store_addr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-    inst_addr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-    op : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-    operandd : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+    inst_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    op : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
 END my_cpu_design_memoire_programe_0_0;
@@ -70,24 +69,22 @@ ARCHITECTURE my_cpu_design_memoire_programe_0_0_arch OF my_cpu_design_memoire_pr
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_memoire_programe_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT memoire_programe IS
     PORT (
-      store : IN STD_LOGIC;
+      reg_data_en : IN STD_LOGIC;
       stored_val : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      store_addr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-      inst_addr : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-      op : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-      operandd : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+      inst_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      address : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      op : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
   END COMPONENT memoire_programe;
 BEGIN
   U0 : memoire_programe
     PORT MAP (
-      store => store,
+      reg_data_en => reg_data_en,
       stored_val => stored_val,
-      store_addr => store_addr,
       inst_addr => inst_addr,
+      address => address,
       op => op,
-      operandd => operandd,
       data => data
     );
 END my_cpu_design_memoire_programe_0_0_arch;
