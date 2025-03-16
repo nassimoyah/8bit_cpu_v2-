@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/nassi/8bit_cpu/8bit_cpu.srcs/sources_1/new/memoire_programe.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'memoire_programe'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_memoire_programe_0_0/sim/my_cpu_design_memoire_programe_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'my_cpu_design_memoire_programe_0_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/sim/my_cpu_design.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'my_cpu_design'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/nassi/8bit_cpu/8bit_cpu.gen/sources_1/bd/my_cpu_design/hdl/my_cpu_design_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'my_cpu_design_wrapper'

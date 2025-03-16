@@ -1,0 +1,14 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+C:/Users/nassi/8bit_cpu/8bit_cpu.gen/sources_1/bd/my_cpu_design/hdl/my_cpu_design_wrapper.vhd,1741973675,vhdl,,,,my_cpu_design_wrapper,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_ALU_0_0/sim/my_cpu_design_ALU_0_0.vhd,1741972522,vhdl,,,,my_cpu_design_alu_0_0,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Pc_0_0/sim/my_cpu_design_Pc_0_0.vhd,1741972522,vhdl,,,,my_cpu_design_pc_0_0,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Registre_A_0_0/sim/my_cpu_design_Registre_A_0_0.vhd,1741972522,vhdl,,,,my_cpu_design_registre_a_0_0,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_memoire_programe_0_0/sim/my_cpu_design_memoire_programe_0_0.vhd,1741973675,vhdl,,,,my_cpu_design_memoire_programe_0_0,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.ip_user_files/bd/my_cpu_design/sim/my_cpu_design.vhd,1741973675,vhdl,,,,my_cpu_design,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.srcs/sources_1/new/ALU.vhd,1741971719,vhdl,,,,alu,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.srcs/sources_1/new/Pc.vhd,1741971327,vhdl,,,,pc,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.srcs/sources_1/new/Registre_A.vhd,1741971804,vhdl,,,,registre_a,,,,,,,,
+C:/Users/nassi/8bit_cpu/8bit_cpu.srcs/sources_1/new/memoire_programe.vhd,1741973664,vhdl,,,,memoire_programe,,,,,,,,

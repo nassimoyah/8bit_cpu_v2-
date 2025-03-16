@@ -1,0 +1,310 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x4BEB8B5D79F5EE50",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design",
+      "name": "my_cpu_design",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.2"
+    },
+    "design_tree": {
+      "Pc_0": "",
+      "memoire_programe_0": "",
+      "ALU_0": "",
+      "Registre_A_0": ""
+    },
+    "ports": {
+      "clk_0": {
+        "type": "clk",
+        "direction": "I"
+      },
+      "next_inst_0": {
+        "direction": "O",
+        "left": "4",
+        "right": "0"
+      },
+      "saute_now_0": {
+        "direction": "O"
+      },
+      "result_0": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "reg_data": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "prog_mem_data": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "jump1": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "Pc_0": {
+        "vlnv": "xilinx.com:module_ref:Pc:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_Pc_0_0",
+        "xci_path": "ip\\my_cpu_design_Pc_0_0\\my_cpu_design_Pc_0_0.xci",
+        "inst_hier_path": "Pc_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Pc",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "my_cpu_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "saute_now": {
+            "direction": "O"
+          },
+          "jump1_enable": {
+            "direction": "I"
+          },
+          "jump_enable": {
+            "direction": "I"
+          },
+          "jump_addr": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "next_inst": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          }
+        }
+      },
+      "memoire_programe_0": {
+        "vlnv": "xilinx.com:module_ref:memoire_programe:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_memoire_programe_0_0",
+        "xci_path": "ip\\my_cpu_design_memoire_programe_0_0\\my_cpu_design_memoire_programe_0_0.xci",
+        "inst_hier_path": "memoire_programe_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "memoire_programe",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "store": {
+            "direction": "I"
+          },
+          "stored_val": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "store_addr": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "inst_addr": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "op": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "operandd": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "ALU_0": {
+        "vlnv": "xilinx.com:module_ref:ALU:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_ALU_0_0",
+        "xci_path": "ip\\my_cpu_design_ALU_0_0\\my_cpu_design_ALU_0_0.xci",
+        "inst_hier_path": "ALU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ALU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "op": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "jump1": {
+            "direction": "O"
+          },
+          "jump_enable": {
+            "direction": "O"
+          },
+          "store_enable": {
+            "direction": "O"
+          },
+          "operamd": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "rega_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mem_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "result": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "Registre_A_0": {
+        "vlnv": "xilinx.com:module_ref:Registre_A:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_Registre_A_0_0",
+        "xci_path": "ip\\my_cpu_design_Registre_A_0_0\\my_cpu_design_Registre_A_0_0.xci",
+        "inst_hier_path": "Registre_A_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Registre_A",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "my_cpu_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "jump": {
+            "direction": "I"
+          },
+          "st": {
+            "direction": "I"
+          },
+          "reg_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "write_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "ALU_0_jump1": {
+        "ports": [
+          "ALU_0/jump1",
+          "Pc_0/jump1_enable",
+          "jump1"
+        ]
+      },
+      "ALU_0_jump_enable": {
+        "ports": [
+          "ALU_0/jump_enable",
+          "Pc_0/jump_enable",
+          "Registre_A_0/jump"
+        ]
+      },
+      "ALU_0_result": {
+        "ports": [
+          "ALU_0/result",
+          "result_0",
+          "Registre_A_0/write_data",
+          "Pc_0/jump_addr",
+          "memoire_programe_0/store_addr"
+        ]
+      },
+      "ALU_0_store_enable": {
+        "ports": [
+          "ALU_0/store_enable",
+          "Registre_A_0/st",
+          "memoire_programe_0/store"
+        ]
+      },
+      "Pc_0_next_inst": {
+        "ports": [
+          "Pc_0/next_inst",
+          "next_inst_0",
+          "memoire_programe_0/inst_addr"
+        ]
+      },
+      "Pc_0_saute_now": {
+        "ports": [
+          "Pc_0/saute_now",
+          "saute_now_0"
+        ]
+      },
+      "Registre_A_0_reg_data": {
+        "ports": [
+          "Registre_A_0/reg_data",
+          "ALU_0/rega_data",
+          "reg_data",
+          "memoire_programe_0/stored_val"
+        ]
+      },
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "Pc_0/clk",
+          "Registre_A_0/clk"
+        ]
+      },
+      "memoire_programe_0_data": {
+        "ports": [
+          "memoire_programe_0/data",
+          "ALU_0/mem_data",
+          "prog_mem_data"
+        ]
+      },
+      "memoire_programe_0_op": {
+        "ports": [
+          "memoire_programe_0/op",
+          "ALU_0/op"
+        ]
+      },
+      "memoire_programe_0_operandd": {
+        "ports": [
+          "memoire_programe_0/operandd",
+          "ALU_0/operamd"
+        ]
+      }
+    }
+  }
+}
