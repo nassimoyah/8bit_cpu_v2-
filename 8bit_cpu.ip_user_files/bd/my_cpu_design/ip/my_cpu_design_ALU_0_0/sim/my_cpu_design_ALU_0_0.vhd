@@ -55,14 +55,22 @@ USE ieee.numeric_std.ALL;
 
 ENTITY my_cpu_design_ALU_0_0 IS
   PORT (
+    Z : IN STD_LOGIC;
     op : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    mem_data16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    Reg16_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     skip1 : OUT STD_LOGIC;
     jump_enable : OUT STD_LOGIC;
     Halt : OUT STD_LOGIC;
     store_enable : OUT STD_LOGIC;
-    rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    result : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    reg_B_enable : OUT STD_LOGIC;
+    reg_A_enable : OUT STD_LOGIC;
+    reg_16_enable : OUT STD_LOGIC;
+    reg_16_enable_add : OUT STD_LOGIC;
+    result_16 : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
+    result : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
   );
 END my_cpu_design_ALU_0_0;
 
@@ -71,26 +79,42 @@ ARCHITECTURE my_cpu_design_ALU_0_0_arch OF my_cpu_design_ALU_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_ALU_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT ALU IS
     PORT (
+      Z : IN STD_LOGIC;
       op : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      mem_data16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      Reg16_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       skip1 : OUT STD_LOGIC;
       jump_enable : OUT STD_LOGIC;
       Halt : OUT STD_LOGIC;
       store_enable : OUT STD_LOGIC;
-      rega_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      mem_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-      result : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      reg_B_enable : OUT STD_LOGIC;
+      reg_A_enable : OUT STD_LOGIC;
+      reg_16_enable : OUT STD_LOGIC;
+      reg_16_enable_add : OUT STD_LOGIC;
+      result_16 : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
+      result : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
     );
   END COMPONENT ALU;
 BEGIN
   U0 : ALU
     PORT MAP (
+      Z => Z,
       op => op,
+      rega_data => rega_data,
+      mem_data => mem_data,
+      mem_data16 => mem_data16,
+      Reg16_data => Reg16_data,
       skip1 => skip1,
       jump_enable => jump_enable,
       Halt => Halt,
       store_enable => store_enable,
-      rega_data => rega_data,
-      mem_data => mem_data,
+      reg_B_enable => reg_B_enable,
+      reg_A_enable => reg_A_enable,
+      reg_16_enable => reg_16_enable,
+      reg_16_enable_add => reg_16_enable_add,
+      result_16 => result_16,
       result => result
     );
 END my_cpu_design_ALU_0_0_arch;

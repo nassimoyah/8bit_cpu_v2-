@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar 30 18:54:49 2025" VIVADOVERSION="2024.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys4:part0:1.1" DEVICE="7a100t" NAME="my_cpu_design" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="O" LEFT="8" NAME="ALU_output" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ALU_0" PORT="result"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="Carry_flag" SIGIS="undef" SIGNAME="Port_Or_0_C">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Port_Or_0" PORT="C"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="add_enable" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable_add">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ALU_0" PORT="reg_16_enable_add"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_0" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pc_0" PORT="clk"/>
+        <CONNECTION INSTANCE="reg16_bit_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Reg_B_0" PORT="clk"/>
+        <CONNECTION INSTANCE="Registre_A_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="next_inst_0" RIGHT="0" SIGIS="undef" SIGNAME="Pc_0_next_inst">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Pc_0" PORT="next_inst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="opcode" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_op">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="memoire_programe_0" PORT="op"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="prog_mem_data" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="memoire_programe_0" PORT="data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="regA_data" RIGHT="0" SIGIS="undef" SIGNAME="Registre_A_0_reg_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Registre_A_0" PORT="reg_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="regB_data" RIGHT="0" SIGIS="undef" SIGNAME="Reg_B_0_reg_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Reg_B_0" PORT="reg_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="reg_data_0" RIGHT="0" SIGIS="undef" SIGNAME="reg16_bit_0_reg16_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="reg16_bit_0" PORT="reg16_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="store_16_enable" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ALU_0" PORT="reg_16_enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="zero_flag_0" SIGIS="undef" SIGNAME="Registre_A_0_zero_flag">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Registre_A_0" PORT="zero_flag"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ALU_0" HWVERSION="1.0" INSTANCE="ALU_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ALU" VLNV="xilinx.com:module_ref:ALU:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_ALU_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="Halt" SIGIS="undef" SIGNAME="ALU_0_Halt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="halt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="Reg16_data" RIGHT="0" SIGIS="undef" SIGNAME="reg16_bit_0_reg16_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="reg16_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Z" SIGIS="undef" SIGNAME="Registre_A_0_zero_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="zero_flag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="jump_enable" SIGIS="undef" SIGNAME="ALU_0_jump_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="jump_to_addr_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="mem_data" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="mem_data16" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="op" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_op">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="op"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reg_16_enable" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="store_16_enable"/>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="memo_Write_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reg_16_enable_add" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable_add">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="add_enable"/>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="Write_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reg_A_enable" SIGIS="undef" SIGNAME="ALU_0_reg_A_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="Write_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reg_B_enable" SIGIS="undef" SIGNAME="ALU_0_reg_B_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Reg_B_0" PORT="write_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="rega_data" RIGHT="0" SIGIS="undef" SIGNAME="Registre_A_0_reg_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="reg_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="result" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ALU_output"/>
+            <CONNECTION INSTANCE="Reg_B_0" PORT="write_data"/>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="write_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="16" NAME="result_16" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result_16">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="Result_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="skip1" SIGIS="undef" SIGNAME="ALU_0_skip1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="skip_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="store_enable" SIGIS="undef" SIGNAME="ALU_0_store_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="store_enable"/>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="reg_data_en"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Pc_0" HWVERSION="1.0" INSTANCE="Pc_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Pc" VLNV="xilinx.com:module_ref:Pc:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_Pc_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="halt" SIGIS="undef" SIGNAME="ALU_0_Halt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="Halt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="jump_to_addr_en" SIGIS="undef" SIGNAME="ALU_0_jump_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="jump_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="jumping_address" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="next_inst" RIGHT="0" SIGIS="undef" SIGNAME="Pc_0_next_inst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="next_inst_0"/>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="inst_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="skip_1" SIGIS="undef" SIGNAME="ALU_0_skip1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="skip1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="store_enable" SIGIS="undef" SIGNAME="ALU_0_store_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="store_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Port_Or_0" HWVERSION="1.0" INSTANCE="Port_Or_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Port_Or" VLNV="xilinx.com:module_ref:Port_Or:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_Port_Or_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="C" SIGIS="undef" SIGNAME="Port_Or_0_C">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Carry_flag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="IN1" SIGIS="undef" SIGNAME="reg16_bit_0_carry_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="carry_flag"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="IN2" SIGIS="undef" SIGNAME="Registre_A_0_carry_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="carry_flag"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Reg_B_0" HWVERSION="1.0" INSTANCE="Reg_B_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Reg_B" VLNV="xilinx.com:module_ref:Reg_B:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_Reg_B_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="reg_data" RIGHT="0" SIGIS="undef" SIGNAME="Reg_B_0_reg_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="regB_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="write_data" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="result"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="write_enable" SIGIS="undef" SIGNAME="ALU_0_reg_B_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="reg_B_enable"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/Registre_A_0" HWVERSION="1.0" INSTANCE="Registre_A_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Registre_A" VLNV="xilinx.com:module_ref:Registre_A:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_Registre_A_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="Write_enable" SIGIS="undef" SIGNAME="ALU_0_reg_A_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="reg_A_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="carry_flag" SIGIS="undef" SIGNAME="Registre_A_0_carry_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Port_Or_0" PORT="IN2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="reg_data" RIGHT="0" SIGIS="undef" SIGNAME="Registre_A_0_reg_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="regA_data"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="rega_data"/>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="stored_val"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="write_data" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="result"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="zero_flag" SIGIS="undef" SIGNAME="Registre_A_0_zero_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="zero_flag_0"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="Z"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/memoire_programe_0" HWVERSION="1.0" INSTANCE="memoire_programe_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="memoire_programe" VLNV="xilinx.com:module_ref:memoire_programe:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_memoire_programe_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="15" NAME="address" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="jumping_address"/>
+            <CONNECTION INSTANCE="reg16_bit_0" PORT="memo_data"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="mem_data16"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="data" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="prog_mem_data"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="mem_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="inst_addr" RIGHT="0" SIGIS="undef" SIGNAME="Pc_0_next_inst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Pc_0" PORT="next_inst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="op" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_op">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="opcode"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="op"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reg_data_en" SIGIS="undef" SIGNAME="ALU_0_store_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="store_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="stored_val" RIGHT="0" SIGIS="undef" SIGNAME="Registre_A_0_reg_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Registre_A_0" PORT="reg_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/reg16_bit_0" HWVERSION="1.0" INSTANCE="reg16_bit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="reg16_bit" VLNV="xilinx.com:module_ref:reg16_bit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="my_cpu_design_reg16_bit_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="16" NAME="Result_data" RIGHT="0" SIGIS="undef" SIGNAME="ALU_0_result_16">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="result_16"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="Write_en" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable_add">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="reg_16_enable_add"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="carry_flag" SIGIS="undef" SIGNAME="reg16_bit_0_carry_flag">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Port_Or_0" PORT="IN1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="memo_Write_en" SIGIS="undef" SIGNAME="ALU_0_reg_16_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ALU_0" PORT="reg_16_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="memo_data" RIGHT="0" SIGIS="undef" SIGNAME="memoire_programe_0_address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="memoire_programe_0" PORT="address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="reg16_data" RIGHT="0" SIGIS="undef" SIGNAME="reg16_bit_0_reg16_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reg_data_0"/>
+            <CONNECTION INSTANCE="ALU_0" PORT="Reg16_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

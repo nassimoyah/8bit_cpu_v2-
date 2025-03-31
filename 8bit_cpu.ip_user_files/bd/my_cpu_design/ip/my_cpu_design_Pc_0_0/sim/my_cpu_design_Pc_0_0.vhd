@@ -55,13 +55,12 @@ USE ieee.numeric_std.ALL;
 
 ENTITY my_cpu_design_Pc_0_0 IS
   PORT (
-    store_flag : IN STD_LOGIC;
+    store_enable : IN STD_LOGIC;
     clk : IN STD_LOGIC;
     halt : IN STD_LOGIC;
-    saute_now : OUT STD_LOGIC;
-    skip_next : IN STD_LOGIC;
-    jump_enable : IN STD_LOGIC;
-    jump_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    skip_1 : IN STD_LOGIC;
+    jump_to_addr_en : IN STD_LOGIC;
+    jumping_address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     next_inst : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END my_cpu_design_Pc_0_0;
@@ -71,13 +70,12 @@ ARCHITECTURE my_cpu_design_Pc_0_0_arch OF my_cpu_design_Pc_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_Pc_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT Pc IS
     PORT (
-      store_flag : IN STD_LOGIC;
+      store_enable : IN STD_LOGIC;
       clk : IN STD_LOGIC;
       halt : IN STD_LOGIC;
-      saute_now : OUT STD_LOGIC;
-      skip_next : IN STD_LOGIC;
-      jump_enable : IN STD_LOGIC;
-      jump_addr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      skip_1 : IN STD_LOGIC;
+      jump_to_addr_en : IN STD_LOGIC;
+      jumping_address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       next_inst : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT Pc;
@@ -90,13 +88,12 @@ ARCHITECTURE my_cpu_design_Pc_0_0_arch OF my_cpu_design_Pc_0_0 IS
 BEGIN
   U0 : Pc
     PORT MAP (
-      store_flag => store_flag,
+      store_enable => store_enable,
       clk => clk,
       halt => halt,
-      saute_now => saute_now,
-      skip_next => skip_next,
-      jump_enable => jump_enable,
-      jump_addr => jump_addr,
+      skip_1 => skip_1,
+      jump_to_addr_en => jump_to_addr_en,
+      jumping_address => jumping_address,
       next_inst => next_inst
     );
 END my_cpu_design_Pc_0_0_arch;

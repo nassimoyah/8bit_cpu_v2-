@@ -55,11 +55,12 @@ USE ieee.numeric_std.ALL;
 
 ENTITY my_cpu_design_Registre_A_0_0 IS
   PORT (
+    carry_flag : OUT STD_LOGIC;
+    zero_flag : OUT STD_LOGIC;
+    Write_enable : IN STD_LOGIC;
     clk : IN STD_LOGIC;
-    jump : IN STD_LOGIC;
-    st : IN STD_LOGIC;
-    reg_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-    write_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0)
+    write_data : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+    reg_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
 END my_cpu_design_Registre_A_0_0;
 
@@ -68,11 +69,12 @@ ARCHITECTURE my_cpu_design_Registre_A_0_0_arch OF my_cpu_design_Registre_A_0_0 I
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF my_cpu_design_Registre_A_0_0_arch: ARCHITECTURE IS "yes";
   COMPONENT Registre_A IS
     PORT (
+      carry_flag : OUT STD_LOGIC;
+      zero_flag : OUT STD_LOGIC;
+      Write_enable : IN STD_LOGIC;
       clk : IN STD_LOGIC;
-      jump : IN STD_LOGIC;
-      st : IN STD_LOGIC;
-      reg_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-      write_data : IN STD_LOGIC_VECTOR(7 DOWNTO 0)
+      write_data : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+      reg_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
   END COMPONENT Registre_A;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -84,10 +86,11 @@ ARCHITECTURE my_cpu_design_Registre_A_0_0_arch OF my_cpu_design_Registre_A_0_0 I
 BEGIN
   U0 : Registre_A
     PORT MAP (
+      carry_flag => carry_flag,
+      zero_flag => zero_flag,
+      Write_enable => Write_enable,
       clk => clk,
-      jump => jump,
-      st => st,
-      reg_data => reg_data,
-      write_data => write_data
+      write_data => write_data,
+      reg_data => reg_data
     );
 END my_cpu_design_Registre_A_0_0_arch;

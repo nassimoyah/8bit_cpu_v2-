@@ -1,44 +1,18 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 02/23/2025 08:20:56 PM
--- Design Name: 
--- Module Name: out_reg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity Registre_A is
-Port ( 
+Port (  carry_flag : out std_logic ; 
+        zero_flag : out std_logic:= '0' ; 
+        Write_enable : in std_logic;
         clk : in std_logic;
-         jump : in std_logic;
-         st: in std_logic;   
-    
-        reg_data : out std_logic_vector(7 downto 0);
-        write_data : in std_logic_vector(7 downto 0)
+        write_data : in std_logic_vector(8 downto 0);
+        reg_data : out std_logic_vector(7 downto 0)
+        
     );
 end Registre_A;
 
@@ -47,13 +21,21 @@ architecture Behavioral of Registre_A is
 begin
     process(clk)
     begin
+       if reg = "00000000" then 
+                        zero_flag <= '1' ;
+                    else 
+                        zero_flag <= '0' ; end if ;
         if rising_edge(clk) then
-              if (jump = '0' ) then   
+               if(write_enable ='1' ) then 
                
-                reg <= write_data;
-              end if ; 
+                    reg <= write_data(7 downto 0);  
+                   
+                        
+                    carry_flag <=  write_data(8) ;
+                end if ;          
         end if;
     end process;
+
 
     reg_data <= reg;
 end Behavioral;

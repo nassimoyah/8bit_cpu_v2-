@@ -33,7 +33,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>aa2b5948</spirit:value>
+            <spirit:value>56bce050</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -46,7 +46,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>aa2b5948</spirit:value>
+            <spirit:value>56bce050</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -61,7 +61,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>store_flag</spirit:name>
+        <spirit:name>store_enable</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -100,7 +100,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>skip_next</spirit:name>
+        <spirit:name>skip_1</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -113,7 +113,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>jump_enable</spirit:name>
+        <spirit:name>jump_to_addr_en</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -126,7 +126,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>jump_addr</spirit:name>
+        <spirit:name>jumping_address</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -194,7 +194,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2025-03-16T22:28:55Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2025-03-16T23:18:22Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2024.2</xilinx:xilinxVersion>

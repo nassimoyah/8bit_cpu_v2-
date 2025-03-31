@@ -4,10 +4,16 @@ vhdl xil_defaultlib  \
 "../../../../8bit_cpu.srcs/sources_1/new/memoire_programe.vhd" \
 "../../../../8bit_cpu.srcs/sources_1/new/ALU.vhd" \
 "../../../../8bit_cpu.srcs/sources_1/new/Registre_A.vhd" \
+"../../../../8bit_cpu.srcs/sources_1/new/Reg_B.vhd" \
+"../../../../8bit_cpu.srcs/sources_1/new/reg16_bit.vhd" \
+"../../../../8bit_cpu.srcs/sources_1/new/Port_Or.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Pc_0_0/sim/my_cpu_design_Pc_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_memoire_programe_0_0/sim/my_cpu_design_memoire_programe_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_ALU_0_0/sim/my_cpu_design_ALU_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Registre_A_0_0/sim/my_cpu_design_Registre_A_0_0.vhd" \
+"../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Reg_B_0_0/sim/my_cpu_design_Reg_B_0_0.vhd" \
+"../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_reg16_bit_0_0/sim/my_cpu_design_reg16_bit_0_0.vhd" \
+"../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Port_Or_0_0/sim/my_cpu_design_Port_Or_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/sim/my_cpu_design.vhd" \
 "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design/hdl/my_cpu_design_wrapper.vhd" \
 

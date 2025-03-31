@@ -1,36 +1,62 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDECE60FF93AA74B4",
+      "boundary_crc": "0x4C3F2DC1C3F9AFBC",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design",
       "name": "my_cpu_design",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2024.2"
+      "tool_version": "2024.2",
+      "validated": "true"
     },
     "design_tree": {
       "Pc_0": "",
       "memoire_programe_0": "",
       "ALU_0": "",
-      "Registre_A_0": ""
+      "Registre_A_0": "",
+      "Reg_B_0": "",
+      "reg16_bit_0": "",
+      "Port_Or_0": ""
     },
     "ports": {
       "clk_0": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "my_cpu_design_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "next_inst_0": {
         "direction": "O",
         "left": "15",
         "right": "0"
       },
-      "result_0": {
+      "ALU_output": {
         "direction": "O",
-        "left": "7",
+        "left": "8",
         "right": "0"
       },
-      "reg_data": {
+      "regA_data": {
         "direction": "O",
         "left": "7",
         "right": "0"
@@ -40,21 +66,32 @@
         "left": "7",
         "right": "0"
       },
-      "jump1": {
-        "direction": "O"
-      },
       "opcode": {
         "direction": "O",
         "left": "7",
         "right": "0"
       },
-      "store_flag": {
-        "direction": "O"
+      "regB_data": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
       },
-      "address_0": {
+      "reg_data_0": {
         "direction": "O",
         "left": "15",
         "right": "0"
+      },
+      "add_enable": {
+        "direction": "O"
+      },
+      "store_16_enable": {
+        "direction": "O"
+      },
+      "Carry_flag": {
+        "direction": "O"
+      },
+      "zero_flag_0": {
+        "direction": "O"
       }
     },
     "components": {
@@ -70,23 +107,29 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "store_flag": {
+          "store_enable": {
             "direction": "I"
           },
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "my_cpu_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
           },
           "halt": {
             "direction": "I"
           },
-          "skip_next": {
+          "skip_1": {
             "direction": "I"
           },
-          "jump_enable": {
+          "jump_to_addr_en": {
             "direction": "I"
           },
-          "jump_addr": {
+          "jumping_address": {
             "direction": "I",
             "left": "15",
             "right": "0"
@@ -152,9 +195,32 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "Z": {
+            "direction": "I"
+          },
           "op": {
             "direction": "I",
             "left": "7",
+            "right": "0"
+          },
+          "rega_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mem_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mem_data16": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Reg16_data": {
+            "direction": "I",
+            "left": "15",
             "right": "0"
           },
           "skip1": {
@@ -169,19 +235,26 @@
           "store_enable": {
             "direction": "O"
           },
-          "rega_data": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
+          "reg_B_enable": {
+            "direction": "O"
           },
-          "mem_data": {
-            "direction": "I",
-            "left": "7",
+          "reg_A_enable": {
+            "direction": "O"
+          },
+          "reg_16_enable": {
+            "direction": "O"
+          },
+          "reg_16_enable_add": {
+            "direction": "O"
+          },
+          "result_16": {
+            "direction": "O",
+            "left": "16",
             "right": "0"
           },
           "result": {
             "direction": "O",
-            "left": "7",
+            "left": "8",
             "right": "0"
           }
         }
@@ -198,6 +271,15 @@
           "boundary_crc": "0x0"
         },
         "ports": {
+          "carry_flag": {
+            "direction": "O"
+          },
+          "zero_flag": {
+            "direction": "O"
+          },
+          "Write_enable": {
+            "direction": "I"
+          },
           "clk": {
             "type": "clk",
             "direction": "I",
@@ -208,11 +290,42 @@
               }
             }
           },
-          "jump": {
+          "write_data": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "reg_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "Reg_B_0": {
+        "vlnv": "xilinx.com:module_ref:Reg_B:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_Reg_B_0_0",
+        "xci_path": "ip\\my_cpu_design_Reg_B_0_0\\my_cpu_design_Reg_B_0_0.xci",
+        "inst_hier_path": "Reg_B_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Reg_B",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "write_enable": {
             "direction": "I"
           },
-          "st": {
-            "direction": "I"
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "my_cpu_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
           },
           "reg_data": {
             "direction": "O",
@@ -221,8 +334,79 @@
           },
           "write_data": {
             "direction": "I",
-            "left": "7",
+            "left": "8",
             "right": "0"
+          }
+        }
+      },
+      "reg16_bit_0": {
+        "vlnv": "xilinx.com:module_ref:reg16_bit:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_reg16_bit_0_0",
+        "xci_path": "ip\\my_cpu_design_reg16_bit_0_0\\my_cpu_design_reg16_bit_0_0.xci",
+        "inst_hier_path": "reg16_bit_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "reg16_bit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "memo_data": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "Result_data": {
+            "direction": "I",
+            "left": "16",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "my_cpu_design_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "carry_flag": {
+            "direction": "O"
+          },
+          "Write_en": {
+            "direction": "I"
+          },
+          "memo_Write_en": {
+            "direction": "I"
+          },
+          "reg16_data": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "Port_Or_0": {
+        "vlnv": "xilinx.com:module_ref:Port_Or:1.0",
+        "ip_revision": "1",
+        "xci_name": "my_cpu_design_Port_Or_0_0",
+        "xci_path": "ip\\my_cpu_design_Port_Or_0_0\\my_cpu_design_Port_Or_0_0.xci",
+        "inst_hier_path": "Port_Or_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Port_Or",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "IN1": {
+            "direction": "I"
+          },
+          "IN2": {
+            "direction": "I"
+          },
+          "C": {
+            "direction": "O"
           }
         }
       }
@@ -237,31 +421,60 @@
       "ALU_0_jump1": {
         "ports": [
           "ALU_0/skip1",
-          "jump1",
-          "Pc_0/skip_next"
+          "Pc_0/skip_1"
         ]
       },
       "ALU_0_jump_enable": {
         "ports": [
           "ALU_0/jump_enable",
-          "Registre_A_0/jump",
-          "Pc_0/jump_enable"
+          "Pc_0/jump_to_addr_en"
+        ]
+      },
+      "ALU_0_reg_16_enable": {
+        "ports": [
+          "ALU_0/reg_16_enable",
+          "store_16_enable",
+          "reg16_bit_0/memo_Write_en"
+        ]
+      },
+      "ALU_0_reg_16_enable_add": {
+        "ports": [
+          "ALU_0/reg_16_enable_add",
+          "add_enable",
+          "reg16_bit_0/Write_en"
+        ]
+      },
+      "ALU_0_reg_A_enable": {
+        "ports": [
+          "ALU_0/reg_A_enable",
+          "Registre_A_0/Write_enable"
+        ]
+      },
+      "ALU_0_reg_B_enable": {
+        "ports": [
+          "ALU_0/reg_B_enable",
+          "Reg_B_0/write_enable"
         ]
       },
       "ALU_0_result": {
         "ports": [
           "ALU_0/result",
-          "result_0",
+          "ALU_output",
+          "Reg_B_0/write_data",
           "Registre_A_0/write_data"
+        ]
+      },
+      "ALU_0_result_16": {
+        "ports": [
+          "ALU_0/result_16",
+          "reg16_bit_0/Result_data"
         ]
       },
       "ALU_0_store_enable": {
         "ports": [
           "ALU_0/store_enable",
-          "store_flag",
-          "memoire_programe_0/reg_data_en",
-          "Registre_A_0/st",
-          "Pc_0/store_flag"
+          "Pc_0/store_enable",
+          "memoire_programe_0/reg_data_en"
         ]
       },
       "Pc_0_next_inst": {
@@ -271,26 +484,54 @@
           "memoire_programe_0/inst_addr"
         ]
       },
+      "Port_Or_0_C": {
+        "ports": [
+          "Port_Or_0/C",
+          "Carry_flag"
+        ]
+      },
+      "Reg_B_0_reg_data": {
+        "ports": [
+          "Reg_B_0/reg_data",
+          "regB_data"
+        ]
+      },
+      "Registre_A_0_carry_flag": {
+        "ports": [
+          "Registre_A_0/carry_flag",
+          "Port_Or_0/IN2"
+        ]
+      },
       "Registre_A_0_reg_data": {
         "ports": [
           "Registre_A_0/reg_data",
-          "reg_data",
+          "regA_data",
           "ALU_0/rega_data",
           "memoire_programe_0/stored_val"
+        ]
+      },
+      "Registre_A_0_zero_flag": {
+        "ports": [
+          "Registre_A_0/zero_flag",
+          "zero_flag_0",
+          "ALU_0/Z"
         ]
       },
       "clk_0_1": {
         "ports": [
           "clk_0",
-          "Registre_A_0/clk",
-          "Pc_0/clk"
+          "Pc_0/clk",
+          "reg16_bit_0/clk",
+          "Reg_B_0/clk",
+          "Registre_A_0/clk"
         ]
       },
       "memoire_programe_0_address": {
         "ports": [
           "memoire_programe_0/address",
-          "address_0",
-          "Pc_0/jump_addr"
+          "Pc_0/jumping_address",
+          "reg16_bit_0/memo_data",
+          "ALU_0/mem_data16"
         ]
       },
       "memoire_programe_0_data": {
@@ -305,6 +546,19 @@
           "memoire_programe_0/op",
           "opcode",
           "ALU_0/op"
+        ]
+      },
+      "reg16_bit_0_carry_flag": {
+        "ports": [
+          "reg16_bit_0/carry_flag",
+          "Port_Or_0/IN1"
+        ]
+      },
+      "reg16_bit_0_reg_data": {
+        "ports": [
+          "reg16_bit_0/reg16_data",
+          "reg_data_0",
+          "ALU_0/Reg16_data"
         ]
       }
     }
