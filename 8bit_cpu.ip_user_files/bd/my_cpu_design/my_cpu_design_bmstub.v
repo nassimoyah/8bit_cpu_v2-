@@ -13,7 +13,7 @@ module my_cpu_design (
   prog_mem_data,
   opcode,
   regB_data,
-  reg_data_0,
+  reg_data16_0,
   add_enable,
   store_16_enable,
   Carry_flag,
@@ -37,7 +37,7 @@ module my_cpu_design (
   (* X_INTERFACE_IGNORE = "true" *)
   output [7:0]regB_data;
   (* X_INTERFACE_IGNORE = "true" *)
-  output [15:0]reg_data_0;
+  output [15:0]reg_data16_0;
   (* X_INTERFACE_IGNORE = "true" *)
   output add_enable;
   (* X_INTERFACE_IGNORE = "true" *)

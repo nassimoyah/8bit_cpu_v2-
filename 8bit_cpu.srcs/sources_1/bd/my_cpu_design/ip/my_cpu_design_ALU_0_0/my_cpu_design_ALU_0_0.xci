@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "my_cpu_design_ALU_0_0",
-    "cell_name": "ALU_0",
+    "cell_name": "ALU_control_unit",
     "component_reference": "xilinx.com:module_ref:ALU:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design/ip/my_cpu_design_ALU_0_0",

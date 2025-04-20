@@ -48,7 +48,7 @@ begin
                    ('0' & mem_data) when "00001000" | "00001001", 
                    ('0' & std_logic_vector(unsigned(rega_data) + 1)) when "00010001",
                    ('0' & std_logic_vector(unsigned(rega_data) - 1)) when "00010010",
-                   "000000000" when others;
+                   '0' & rega_data when others;
     
     --------------------------- op code decoding Result16 ---------------------------------
     with op select
@@ -61,10 +61,13 @@ begin
         jp <= '1' when "00000111", 
         ('1' and not(Z)) when "00010000",  
               '0' when others;
+              
+        
     
     ------------------------ store instruction decoding ------------------------------
     with op select
         st <= '1' when "00000110" | "00001001" | "00001010" | "00001011", 
+         ( Z and   '1') when  "00010000",
               '0' when others;
     
     ------------------------ skip instruction decoding ------------------------------

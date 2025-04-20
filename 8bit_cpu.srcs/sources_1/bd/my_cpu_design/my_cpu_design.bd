@@ -1,19 +1,18 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x4C3F2DC1C3F9AFBC",
+      "boundary_crc": "0xF2ECA9EC6BCBC39D",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design",
       "name": "my_cpu_design",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2024.2",
-      "validated": "true"
+      "tool_version": "2024.2"
     },
     "design_tree": {
       "Pc_0": "",
-      "memoire_programe_0": "",
-      "ALU_0": "",
+      "Program_memory": "",
+      "ALU_control_unit": "",
       "Registre_A_0": "",
       "Reg_B_0": "",
       "reg16_bit_0": "",
@@ -22,29 +21,7 @@
     "ports": {
       "clk_0": {
         "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "my_cpu_design_clk_0",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "next_inst_0": {
         "direction": "O",
@@ -76,7 +53,7 @@
         "left": "7",
         "right": "0"
       },
-      "reg_data_0": {
+      "reg_data16_0": {
         "direction": "O",
         "left": "15",
         "right": "0"
@@ -141,12 +118,12 @@
           }
         }
       },
-      "memoire_programe_0": {
+      "Program_memory": {
         "vlnv": "xilinx.com:module_ref:memoire_programe:1.0",
         "ip_revision": "1",
         "xci_name": "my_cpu_design_memoire_programe_0_0",
         "xci_path": "ip\\my_cpu_design_memoire_programe_0_0\\my_cpu_design_memoire_programe_0_0.xci",
-        "inst_hier_path": "memoire_programe_0",
+        "inst_hier_path": "Program_memory",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "memoire_programe",
@@ -183,12 +160,12 @@
           }
         }
       },
-      "ALU_0": {
+      "ALU_control_unit": {
         "vlnv": "xilinx.com:module_ref:ALU:1.0",
         "ip_revision": "1",
         "xci_name": "my_cpu_design_ALU_0_0",
         "xci_path": "ip\\my_cpu_design_ALU_0_0\\my_cpu_design_ALU_0_0.xci",
-        "inst_hier_path": "ALU_0",
+        "inst_hier_path": "ALU_control_unit",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "ALU",
@@ -414,51 +391,51 @@
     "nets": {
       "ALU_0_Halt": {
         "ports": [
-          "ALU_0/Halt",
+          "ALU_control_unit/Halt",
           "Pc_0/halt"
         ]
       },
       "ALU_0_jump1": {
         "ports": [
-          "ALU_0/skip1",
+          "ALU_control_unit/skip1",
           "Pc_0/skip_1"
         ]
       },
       "ALU_0_jump_enable": {
         "ports": [
-          "ALU_0/jump_enable",
+          "ALU_control_unit/jump_enable",
           "Pc_0/jump_to_addr_en"
         ]
       },
       "ALU_0_reg_16_enable": {
         "ports": [
-          "ALU_0/reg_16_enable",
+          "ALU_control_unit/reg_16_enable",
           "store_16_enable",
           "reg16_bit_0/memo_Write_en"
         ]
       },
       "ALU_0_reg_16_enable_add": {
         "ports": [
-          "ALU_0/reg_16_enable_add",
+          "ALU_control_unit/reg_16_enable_add",
           "add_enable",
           "reg16_bit_0/Write_en"
         ]
       },
       "ALU_0_reg_A_enable": {
         "ports": [
-          "ALU_0/reg_A_enable",
+          "ALU_control_unit/reg_A_enable",
           "Registre_A_0/Write_enable"
         ]
       },
       "ALU_0_reg_B_enable": {
         "ports": [
-          "ALU_0/reg_B_enable",
+          "ALU_control_unit/reg_B_enable",
           "Reg_B_0/write_enable"
         ]
       },
       "ALU_0_result": {
         "ports": [
-          "ALU_0/result",
+          "ALU_control_unit/result",
           "ALU_output",
           "Reg_B_0/write_data",
           "Registre_A_0/write_data"
@@ -466,22 +443,22 @@
       },
       "ALU_0_result_16": {
         "ports": [
-          "ALU_0/result_16",
+          "ALU_control_unit/result_16",
           "reg16_bit_0/Result_data"
         ]
       },
       "ALU_0_store_enable": {
         "ports": [
-          "ALU_0/store_enable",
+          "ALU_control_unit/store_enable",
           "Pc_0/store_enable",
-          "memoire_programe_0/reg_data_en"
+          "Program_memory/reg_data_en"
         ]
       },
       "Pc_0_next_inst": {
         "ports": [
           "Pc_0/next_inst",
           "next_inst_0",
-          "memoire_programe_0/inst_addr"
+          "Program_memory/inst_addr"
         ]
       },
       "Port_Or_0_C": {
@@ -506,15 +483,15 @@
         "ports": [
           "Registre_A_0/reg_data",
           "regA_data",
-          "ALU_0/rega_data",
-          "memoire_programe_0/stored_val"
+          "ALU_control_unit/rega_data",
+          "Program_memory/stored_val"
         ]
       },
       "Registre_A_0_zero_flag": {
         "ports": [
           "Registre_A_0/zero_flag",
           "zero_flag_0",
-          "ALU_0/Z"
+          "ALU_control_unit/Z"
         ]
       },
       "clk_0_1": {
@@ -528,24 +505,24 @@
       },
       "memoire_programe_0_address": {
         "ports": [
-          "memoire_programe_0/address",
+          "Program_memory/address",
           "Pc_0/jumping_address",
           "reg16_bit_0/memo_data",
-          "ALU_0/mem_data16"
+          "ALU_control_unit/mem_data16"
         ]
       },
       "memoire_programe_0_data": {
         "ports": [
-          "memoire_programe_0/data",
+          "Program_memory/data",
           "prog_mem_data",
-          "ALU_0/mem_data"
+          "ALU_control_unit/mem_data"
         ]
       },
       "memoire_programe_0_op": {
         "ports": [
-          "memoire_programe_0/op",
+          "Program_memory/op",
           "opcode",
-          "ALU_0/op"
+          "ALU_control_unit/op"
         ]
       },
       "reg16_bit_0_carry_flag": {
@@ -557,8 +534,8 @@
       "reg16_bit_0_reg_data": {
         "ports": [
           "reg16_bit_0/reg16_data",
-          "reg_data_0",
-          "ALU_0/Reg16_data"
+          "reg_data16_0",
+          "ALU_control_unit/Reg16_data"
         ]
       }
     }

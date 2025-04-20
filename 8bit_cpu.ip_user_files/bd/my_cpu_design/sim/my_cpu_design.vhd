@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Sun Mar 30 18:54:48 2025
+--Date        : Fri Apr 18 19:48:51 2025
 --Host        : aorus running 64-bit major release  (build 9200)
 --Command     : generate_target my_cpu_design.bd
 --Design      : my_cpu_design
@@ -23,7 +23,7 @@ entity my_cpu_design is
     prog_mem_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     regA_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     regB_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    reg_data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    reg_data16_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
     store_16_enable : out STD_LOGIC;
     zero_flag_0 : out STD_LOGIC
   );
@@ -127,7 +127,7 @@ architecture STRUCTURE of my_cpu_design is
   signal \^prog_mem_data\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal reg16_bit_0_carry_flag : STD_LOGIC;
   signal \^rega_data\ : STD_LOGIC_VECTOR ( 7 downto 0 );
-  signal \^reg_data_0\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \^reg_data16_0\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \^store_16_enable\ : STD_LOGIC;
   signal \^zero_flag_0\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
@@ -141,13 +141,13 @@ begin
   opcode(7 downto 0) <= \^opcode\(7 downto 0);
   prog_mem_data(7 downto 0) <= \^prog_mem_data\(7 downto 0);
   regA_data(7 downto 0) <= \^rega_data\(7 downto 0);
-  reg_data_0(15 downto 0) <= \^reg_data_0\(15 downto 0);
+  reg_data16_0(15 downto 0) <= \^reg_data16_0\(15 downto 0);
   store_16_enable <= \^store_16_enable\;
   zero_flag_0 <= \^zero_flag_0\;
-ALU_0: component my_cpu_design_ALU_0_0
+ALU_control_unit: component my_cpu_design_ALU_0_0
      port map (
       Halt => ALU_0_Halt,
-      Reg16_data(15 downto 0) => \^reg_data_0\(15 downto 0),
+      Reg16_data(15 downto 0) => \^reg_data16_0\(15 downto 0),
       Z => \^zero_flag_0\,
       jump_enable => ALU_0_jump_enable,
       mem_data(7 downto 0) => \^prog_mem_data\(7 downto 0),
@@ -179,6 +179,15 @@ Port_Or_0: component my_cpu_design_Port_Or_0_0
       IN1 => reg16_bit_0_carry_flag,
       IN2 => Registre_A_0_carry_flag
     );
+Program_memory: component my_cpu_design_memoire_programe_0_0
+     port map (
+      address(15 downto 0) => memoire_programe_0_address(15 downto 0),
+      data(7 downto 0) => \^prog_mem_data\(7 downto 0),
+      inst_addr(15 downto 0) => \^next_inst_0\(15 downto 0),
+      op(7 downto 0) => \^opcode\(7 downto 0),
+      reg_data_en => ALU_0_store_enable,
+      stored_val(7 downto 0) => \^rega_data\(7 downto 0)
+    );
 Reg_B_0: component my_cpu_design_Reg_B_0_0
      port map (
       clk => clk_0,
@@ -195,15 +204,6 @@ Registre_A_0: component my_cpu_design_Registre_A_0_0
       write_data(8 downto 0) => \^alu_output\(8 downto 0),
       zero_flag => \^zero_flag_0\
     );
-memoire_programe_0: component my_cpu_design_memoire_programe_0_0
-     port map (
-      address(15 downto 0) => memoire_programe_0_address(15 downto 0),
-      data(7 downto 0) => \^prog_mem_data\(7 downto 0),
-      inst_addr(15 downto 0) => \^next_inst_0\(15 downto 0),
-      op(7 downto 0) => \^opcode\(7 downto 0),
-      reg_data_en => ALU_0_store_enable,
-      stored_val(7 downto 0) => \^rega_data\(7 downto 0)
-    );
 reg16_bit_0: component my_cpu_design_reg16_bit_0_0
      port map (
       Result_data(16 downto 0) => ALU_0_result_16(16 downto 0),
@@ -212,6 +212,6 @@ reg16_bit_0: component my_cpu_design_reg16_bit_0_0
       clk => clk_0,
       memo_Write_en => \^store_16_enable\,
       memo_data(15 downto 0) => memoire_programe_0_address(15 downto 0),
-      reg16_data(15 downto 0) => \^reg_data_0\(15 downto 0)
+      reg16_data(15 downto 0) => \^reg_data16_0\(15 downto 0)
     );
 end STRUCTURE;

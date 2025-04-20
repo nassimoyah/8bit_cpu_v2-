@@ -42,9 +42,32 @@ signal memo : instruction_set := (
     7=> X"12",
     8=> X"01",
     9=> X"09",
--- END OF GENERATED CONTENT HERE
--- END OF GENERATED CONTENT HERE
--- END OF GENERATED CONTENT HERE
+    10=> X"04",
+    11=> X"55",
+    12=> X"05",
+    13=> X"55",
+    14=> X"02",
+    15=> X"02",
+    16=> X"06",
+    17=> X"22",
+    18=> X"00",
+    19=> X"01",
+    20=> X"03",
+    21=> X"07",
+    22=> X"24",
+    23=> X"00",
+    24=> X"09",
+    25=> X"33",
+    26=> X"55",
+    27=> X"0A",
+    28=> X"04",
+    29=> X"50",
+    30=> X"0E",
+    31=> X"08",
+    32=> X"0F",
+    34=> X"10",
+    35=> X"23",
+    36=> X"00",
 -- END OF GENERATED CONTENT HERE
 -- END OF GENERATED CONTENT HERE
 -- END OF GENERATED CONTENT HERE

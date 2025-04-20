@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Sun Mar 30 18:54:48 2025
+--Date        : Fri Apr 18 19:48:51 2025
 --Host        : aorus running 64-bit major release  (build 9200)
 --Command     : generate_target my_cpu_design_wrapper.bd
 --Design      : my_cpu_design_wrapper
@@ -23,7 +23,7 @@ entity my_cpu_design_wrapper is
     prog_mem_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     regA_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     regB_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    reg_data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    reg_data16_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
     store_16_enable : out STD_LOGIC;
     zero_flag_0 : out STD_LOGIC
   );
@@ -39,7 +39,7 @@ architecture STRUCTURE of my_cpu_design_wrapper is
     prog_mem_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
     opcode : out STD_LOGIC_VECTOR ( 7 downto 0 );
     regB_data : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    reg_data_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    reg_data16_0 : out STD_LOGIC_VECTOR ( 15 downto 0 );
     add_enable : out STD_LOGIC;
     store_16_enable : out STD_LOGIC;
     Carry_flag : out STD_LOGIC;
@@ -58,7 +58,7 @@ my_cpu_design_i: component my_cpu_design
       prog_mem_data(7 downto 0) => prog_mem_data(7 downto 0),
       regA_data(7 downto 0) => regA_data(7 downto 0),
       regB_data(7 downto 0) => regB_data(7 downto 0),
-      reg_data_0(15 downto 0) => reg_data_0(15 downto 0),
+      reg_data16_0(15 downto 0) => reg_data16_0(15 downto 0),
       store_16_enable => store_16_enable,
       zero_flag_0 => zero_flag_0
     );

@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="4,720.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="7,320.001 ns"></ZoomEndTime>
-      <Cursor1Time time="6,262.000 ns"></Cursor1Time>
+      <ZoomStartTime time="1,300.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,920.001 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="164"></NameColumnWidth>
+      <NameColumnWidth column_width="154"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="8" />
    <wvobject fp_name="/my_cpu_design_wrapper/clk_0" type="logic">
       <obj_property name="ElementShortName">clk_0</obj_property>
       <obj_property name="ObjectShortName">clk_0</obj_property>
@@ -32,33 +32,37 @@
    <wvobject fp_name="/my_cpu_design_wrapper/opcode" type="array">
       <obj_property name="ElementShortName">opcode[7:0]</obj_property>
       <obj_property name="ObjectShortName">opcode[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/my_cpu_design_wrapper/prog_mem_data" type="array">
       <obj_property name="ElementShortName">prog_mem_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">prog_mem_data[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/my_cpu_design_wrapper/regA_data" type="array">
       <obj_property name="ElementShortName">regA_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">regA_data[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/my_cpu_design_wrapper/regB_data" type="array">
       <obj_property name="ElementShortName">regB_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">regB_data[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/my_cpu_design_wrapper/reg_data_0" type="array">
-      <obj_property name="ElementShortName">reg_data_0[15:0]</obj_property>
-      <obj_property name="ObjectShortName">reg_data_0[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/my_cpu_design_wrapper/store_16_enable" type="logic">
-      <obj_property name="ElementShortName">store_16_enable</obj_property>
-      <obj_property name="ObjectShortName">store_16_enable</obj_property>
-   </wvobject>
-   <wvobject fp_name="/my_cpu_design_wrapper/add_enable" type="logic">
-      <obj_property name="ElementShortName">add_enable</obj_property>
-      <obj_property name="ObjectShortName">add_enable</obj_property>
+   <wvobject fp_name="/my_cpu_design_wrapper/reg_data16_0" type="array">
+      <obj_property name="ElementShortName">reg_data16_0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_data16_0[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/my_cpu_design_wrapper/zero_flag_0" type="logic">
       <obj_property name="ElementShortName">zero_flag_0</obj_property>
       <obj_property name="ObjectShortName">zero_flag_0</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
 </wave_config>

@@ -1,53 +1,53 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.670238",
-   "Default View_TopLeft":"-540,-409",
+   "Default View_ScaleFactor":"1.00178",
+   "Default View_TopLeft":"243,-433",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_clk_0 -pg 1 -lvl 0 -x -270 -y -70 -defaultsOSRD
 preplace port port-id_add_enable -pg 1 -lvl 0 -x -270 -y 30 -defaultsOSRD -left
 preplace port port-id_store_16_enable -pg 1 -lvl 0 -x -270 -y 120 -defaultsOSRD -left
-preplace port port-id_Carry_flag -pg 1 -lvl 4 -x 1070 -y -150 -defaultsOSRD
-preplace port port-id_zero_flag_0 -pg 1 -lvl 4 -x 1070 -y -60 -defaultsOSRD
-preplace portBus next_inst_0 -pg 1 -lvl 4 -x 1070 -y 40 -defaultsOSRD
-preplace portBus ALU_output -pg 1 -lvl 4 -x 1070 -y 210 -defaultsOSRD
-preplace portBus regA_data -pg 1 -lvl 4 -x 1070 -y 100 -defaultsOSRD
-preplace portBus prog_mem_data -pg 1 -lvl 4 -x 1070 -y 240 -defaultsOSRD
-preplace portBus opcode -pg 1 -lvl 4 -x 1070 -y 170 -defaultsOSRD
-preplace portBus regB_data -pg 1 -lvl 4 -x 1070 -y -210 -defaultsOSRD
-preplace portBus reg_data_0 -pg 1 -lvl 4 -x 1070 -y -360 -defaultsOSRD
-preplace inst Pc_0 -pg 1 -lvl 1 -x 20 -y -30 -defaultsOSRD
-preplace inst memoire_programe_0 -pg 1 -lvl 2 -x 710 -y 190 -defaultsOSRD
-preplace inst ALU_0 -pg 1 -lvl 1 -x 20 -y 210 -defaultsOSRD
+preplace port port-id_Carry_flag -pg 1 -lvl 4 -x 1080 -y -250 -defaultsOSRD
+preplace port port-id_zero_flag_0 -pg 1 -lvl 4 -x 1080 -y -280 -defaultsOSRD
+preplace portBus next_inst_0 -pg 1 -lvl 4 -x 1080 -y -20 -defaultsOSRD
+preplace portBus ALU_output -pg 1 -lvl 4 -x 1080 -y 170 -defaultsOSRD
+preplace portBus regA_data -pg 1 -lvl 4 -x 1080 -y 40 -defaultsOSRD
+preplace portBus prog_mem_data -pg 1 -lvl 4 -x 1080 -y 240 -defaultsOSRD
+preplace portBus opcode -pg 1 -lvl 4 -x 1080 -y 270 -defaultsOSRD
+preplace portBus regB_data -pg 1 -lvl 4 -x 1080 -y 10 -defaultsOSRD
+preplace portBus reg_data16_0 -pg 1 -lvl 4 -x 1080 -y -220 -defaultsOSRD
+preplace inst Pc_0 -pg 1 -lvl 1 -x 20 -y -60 -defaultsOSRD
+preplace inst Program_memory -pg 1 -lvl 2 -x 710 -y 170 -defaultsOSRD
+preplace inst ALU_control_unit -pg 1 -lvl 1 -x 20 -y 180 -defaultsOSRD
 preplace inst Registre_A_0 -pg 1 -lvl 2 -x 710 -y -60 -defaultsOSRD
 preplace inst Reg_B_0 -pg 1 -lvl 2 -x 710 -y -310 -defaultsOSRD
-preplace inst reg16_bit_0 -pg 1 -lvl 1 -x 20 -y -300 -defaultsOSRD
+preplace inst reg16_bit_0 -pg 1 -lvl 1 -x 20 -y -320 -defaultsOSRD
 preplace inst Port_Or_0 -pg 1 -lvl 3 -x 970 -y -150 -defaultsOSRD
-preplace netloc ALU_0_Halt 1 0 2 -180 -160 200J
-preplace netloc ALU_0_jump1 1 0 2 -190 -170 210
-preplace netloc ALU_0_jump_enable 1 0 2 -160 -140 190
+preplace netloc ALU_0_Halt 1 0 2 -170 -190 210J
+preplace netloc ALU_0_jump1 1 0 2 -150 -170 190
+preplace netloc ALU_0_jump_enable 1 0 2 -160 -180 200
 preplace netloc ALU_0_reg_16_enable 1 0 2 -220 370 200
-preplace netloc ALU_0_reg_16_enable_add 1 0 2 -230 360 190
-preplace netloc ALU_0_result 1 1 3 260 270 870 210 N
-preplace netloc ALU_0_result_16 1 0 2 -160 -400 220
-preplace netloc ALU_0_store_enable 1 0 2 -150 380 290J
-preplace netloc Pc_0_next_inst 1 1 3 250J 40 NJ 40 N
-preplace netloc Port_Or_0_C 1 3 1 N -150
-preplace netloc Reg_B_0_reg_data 1 2 2 N -310 1050
-preplace netloc Registre_A_0_carry_flag 1 2 1 850 -140n
-preplace netloc Registre_A_0_reg_data 1 0 4 -190 410 280 100 850 100 N
-preplace netloc clk_0_1 1 0 2 -240 -190 560
-preplace netloc memoire_programe_0_address 1 0 3 -210 420 NJ 420 850
-preplace netloc memoire_programe_0_data 1 0 4 -170 390 N 390 860 240 N
-preplace netloc memoire_programe_0_op 1 0 4 -180 400 N 400 880 170 N
-preplace netloc reg16_bit_0_carry_flag 1 1 2 270J -160 N
-preplace netloc reg16_bit_0_reg_data 1 0 4 -200 -180 230 -390 N -390 1050
-preplace netloc ALU_0_reg_A_enable 1 1 1 270 -80n
+preplace netloc ALU_0_reg_16_enable_add 1 0 2 -230 330 190
+preplace netloc ALU_0_reg_A_enable 1 1 1 540 -80n
 preplace netloc ALU_0_reg_B_enable 1 1 1 240 -330n
-preplace netloc Registre_A_0_zero_flag 1 0 4 -170 -150 N -150 880J -60 NJ
-levelinfo -pg 1 -270 20 710 970 1070
-pagesize -pg 1 -db -bbox -sgen -430 -640 1250 660
+preplace netloc ALU_0_result 1 1 3 530 250 880 170 N
+preplace netloc ALU_0_result_16 1 0 2 -150 -420 220
+preplace netloc ALU_0_store_enable 1 0 2 -200 380 250J
+preplace netloc Pc_0_next_inst 1 1 3 560J -140 860J -20 N
+preplace netloc Port_Or_0_C 1 3 1 1060 -250n
+preplace netloc Reg_B_0_reg_data 1 2 2 N -310 1050
+preplace netloc Registre_A_0_carry_flag 1 2 1 870 -140n
+preplace netloc Registre_A_0_reg_data 1 0 4 -150 340 550 40 850 40 N
+preplace netloc Registre_A_0_zero_flag 1 0 4 -180 -210 N -210 850J -280 NJ
+preplace netloc clk_0_1 1 0 2 -240 -200 570
+preplace netloc memoire_programe_0_address 1 0 3 -210 390 NJ 390 850
+preplace netloc memoire_programe_0_data 1 0 4 -160 350 N 350 860 240 N
+preplace netloc memoire_programe_0_op 1 0 4 -170 360 N 360 870 270 N
+preplace netloc reg16_bit_0_carry_flag 1 1 2 230J -390 860
+preplace netloc reg16_bit_0_reg_data 1 0 4 -190 -220 250 -220 N -220 N
+levelinfo -pg 1 -270 20 710 970 1080
+pagesize -pg 1 -db -bbox -sgen -430 -640 1260 660
 "
 }
 0
