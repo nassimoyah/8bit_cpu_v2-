@@ -14,6 +14,7 @@ vhdl xil_defaultlib  \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Reg_B_0_0/sim/my_cpu_design_Reg_B_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_reg16_bit_0_0/sim/my_cpu_design_reg16_bit_0_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Port_Or_0_0/sim/my_cpu_design_Port_Or_0_0.vhd" \
+"../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/ip/my_cpu_design_Port_Or_1_0/sim/my_cpu_design_Port_Or_1_0.vhd" \
 "../../../../8bit_cpu.ip_user_files/bd/my_cpu_design/sim/my_cpu_design.vhd" \
 "../../../../8bit_cpu.gen/sources_1/bd/my_cpu_design/hdl/my_cpu_design_wrapper.vhd" \
 

@@ -4,18 +4,19 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU is
     Port ( 
-        Z : in STD_LOGIC ;
-        op : in STD_LOGIC_VECTOR (7 downto 0);
-        rega_data : in STD_LOGIC_VECTOR (7 downto 0); 
-        mem_data : in STD_LOGIC_VECTOR (7 downto 0) := "00000000"; 
-        mem_data16 : in STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000"; 
-        Reg16_data : in STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000"; 
+        Z : in STD_LOGIC ;                                -- zero flag 
+        op : in STD_LOGIC_VECTOR (7 downto 0);            -- opcode 
+        rega_data : in STD_LOGIC_VECTOR (7 downto 0);     -- register A data 
+        mem_data : in STD_LOGIC_VECTOR (7 downto 0) := "00000000";   -- memory data  " fetch operand (2 byte instructions ) " 
+        mem_data16 : in STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";  -- 16 bit data for addition or substraction ( c+xxxx, c-xxxx)  
+        Reg16_data : in STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";  -- 16 bit data from reg C
         
         ---------- control signals --------
-        skip1 : out std_logic;
-        jump_enable : out  STD_LOGIC;
-        Halt : out  STD_LOGIC := '0';
-        store_enable : out  STD_LOGIC;
+        skip1 : out std_logic;                      -- control  signal to skip 1 instruction
+        jump_to_addr_enable : out  STD_LOGIC;       -- control signal pour Jump to address instuction  
+        Halt : out  STD_LOGIC := '0';     
+        store_enable : out  STD_LOGIC; 
+        jump3_enable : out  STD_LOGIC;
         reg_B_enable : out  STD_LOGIC;
         reg_A_enable : out  STD_LOGIC;
         reg_16_enable : out  STD_LOGIC;
@@ -61,8 +62,13 @@ begin
         jp <= '1' when "00000111", 
         ('1' and not(Z)) when "00010000",  
               '0' when others;
-              
-        
+
+ ------------------------ jump3 ------------------------------
+    with op select
+        jump3_enable <= '1' when "00001001" | "00001010" | "00001011", 
+         
+              '0' when others;
+                  
     
     ------------------------ store instruction decoding ------------------------------
     with op select
@@ -100,7 +106,7 @@ begin
     -- Output Assignments
     result_16 <= resultt_16;
     result <= resultt;
-    jump_enable <= jp;
+    jump_to_addr_enable <= jp;
     store_enable <= st;
     skip1 <= skip;
     

@@ -62,9 +62,10 @@ ENTITY my_cpu_design_ALU_0_0 IS
     mem_data16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     Reg16_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     skip1 : OUT STD_LOGIC;
-    jump_enable : OUT STD_LOGIC;
+    jump_to_addr_enable : OUT STD_LOGIC;
     Halt : OUT STD_LOGIC;
     store_enable : OUT STD_LOGIC;
+    jump3_enable : OUT STD_LOGIC;
     reg_B_enable : OUT STD_LOGIC;
     reg_A_enable : OUT STD_LOGIC;
     reg_16_enable : OUT STD_LOGIC;
@@ -86,9 +87,10 @@ ARCHITECTURE my_cpu_design_ALU_0_0_arch OF my_cpu_design_ALU_0_0 IS
       mem_data16 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       Reg16_data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       skip1 : OUT STD_LOGIC;
-      jump_enable : OUT STD_LOGIC;
+      jump_to_addr_enable : OUT STD_LOGIC;
       Halt : OUT STD_LOGIC;
       store_enable : OUT STD_LOGIC;
+      jump3_enable : OUT STD_LOGIC;
       reg_B_enable : OUT STD_LOGIC;
       reg_A_enable : OUT STD_LOGIC;
       reg_16_enable : OUT STD_LOGIC;
@@ -107,9 +109,10 @@ BEGIN
       mem_data16 => mem_data16,
       Reg16_data => Reg16_data,
       skip1 => skip1,
-      jump_enable => jump_enable,
+      jump_to_addr_enable => jump_to_addr_enable,
       Halt => Halt,
       store_enable => store_enable,
+      jump3_enable => jump3_enable,
       reg_B_enable => reg_B_enable,
       reg_A_enable => reg_A_enable,
       reg_16_enable => reg_16_enable,
